@@ -41,7 +41,7 @@
       if (mysqli_num_rows($rs)>0) {
        echo "yes";
       }else {
-       echo "string";
+       echo "hii";
       }
 
 
