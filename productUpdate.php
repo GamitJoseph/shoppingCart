@@ -2,7 +2,7 @@
 require_once('nav.php');
 require("dbconnection.php");
 $db=new dbconnection();
-
+$db->checksession();
 
 if (isset($_GET["pid"])) {
 

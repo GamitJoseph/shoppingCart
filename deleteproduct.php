@@ -1,6 +1,7 @@
 <?php 
 require_once("dbconnection.php");
 $db=new dbconnection();
+
 if (isset($_GET["did"])) {
 	$id=$_GET["did"];
 
@@ -15,7 +16,7 @@ if (isset($_GET["did"])) {
 		unlink("images/".$photo);
 		header("Location: index.php");
 	}else{
-		header("Location: index.php".mysqli_error());
+		header("Location: index.php?err=".mysqli_error());
 			//echo $error;
 	}
 

@@ -3,7 +3,20 @@
 class dbconnection {
 
 
+	public function session_set($uname){
+		session_start();
+		$_SESSION["username"] = "$uname";
+	}
 
+	public function checksession(){
+		//session_start();
+		
+	}
+	public function session_end(){
+		
+		session_destroy();
+		header("Location: login.php"); 
+	}
 	public function __construct(){
 
 	}
@@ -17,7 +30,7 @@ class dbconnection {
 	}
 
 	public function getDDNameByID($id,$field,$table){
-		 $qry="select * from ".$table."  where ".$field."=".$id;
+		$qry="select * from ".$table."  where ".$field."=".$id;
 		$rs=$this->QueryTable($qry);
 		while ($row=mysqli_fetch_row($rs)) {
 			

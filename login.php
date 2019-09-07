@@ -28,40 +28,56 @@
 </head>
 <body>
   <div class="container">
+
     <?php
     require("dbconnection.php");
+    $error=null;
 
     if (isset($_POST["btnlogin"])) {
+
       $db=new dbconnection();
       $uname=$_POST["email"];
       $pass=$_POST["password"];
 
       $qry="select * from user where uname='$uname' and password='$pass'";
       $rs=$db->QueryTable($qry);
+
       if (mysqli_num_rows($rs)>0) {
-       echo "yes";
+        
+        $db->session_set($uname);
+        header("Location: index.php");
+
       }else {
-       echo "hii";
-      }
+       $error="username and password wrong....";
+     }
 
 
-    }
-    ?>
+   }
+   ?>
 
-    <form class="myForm" action="login.php" method="post">
-      <div class="form-group ">
-        <label for="email">Email</label>
-        <input class="form-control input-lg" type="text" name="email" id="email" placeholder="email" />
+   <form class="myForm" action="login.php" method="post">
+    <div class="form-group ">
+      <label for="email">Email</label>
+      <input class="form-control input-lg" type="text" name="email" id="email" placeholder="email" />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input class="form-control input-lg" type="password" name="password" placeholder="password" />
+    </div>
+    <div class="sm">
+     <?php if ($error!=null) { ?>
+      <div  class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Error !</strong> <?php echo $error; ?>
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input class="form-control input-lg" type="password" name="password" placeholder="password" />
-      </div>
-      <div class="form-group">
-        <input type="submit" name="btnlogin" class="btn btn-success btn-lg" value="Log In" />
-      </div>
-    </form>
+
+    <?php } ?>
   </div>
+  <div class="form-group">
+    <input type="submit" name="btnlogin" class="btn btn-success btn-lg" value="Log In" />
+  </div>
+</form>
+</div>
 
 </body>
 </html>

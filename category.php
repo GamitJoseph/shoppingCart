@@ -4,6 +4,7 @@ require('nav.php');
 
 require("dbconnection.php");
 $db=new dbconnection();
+$db->checksession();
 $error=null;
 $success_message=null;
 if (isset($_POST["submit"])) {
@@ -171,14 +172,39 @@ if (isset($_POST["submit"])) {
 						<a href="category.php?id=<?php echo $row['cat_id']; ?>">	<button class="btn btn-warning" >Edit</button></a>
 					</td>
 					<td>
-						<a onclick="return confirm('Are you sure want to Delete ?')" href="category.php?did=<?php echo $row['cat_id']; ?>">	<button class="btn btn-danger" >Delete</button></a>
-					</td>
-				</tr>
-				<?php
-			}
-			?>
-		</table>
-	</div>
+						<button class="btn btn-danger" data-toggle="modal" data-target="#deleteDialog">Delete</button>
+
+						<div class="modal fade" id="deleteDialog" role="dialog">
+							<div class="modal-dialog modal-mg">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+										<h4 class="modal-title">Delete Product</h4>
+									</div>
+									<div class="modal-body">
+										<p>Are You sure Want to Delete <?php echo $row['cat_name']; ?>...?</p>
+									</div>
+									<div class="modal-footer">
+										<a  href="category.php?did=<?php echo $row['cat_id']; ?>">	
+											<button type="button" class="btn btn-danger" >Yes</button></a>
+											<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+										</div>
+
+
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</a>
+				</td>
+			</tr>
+			<?php
+		}
+		?>
+	</table>
+</div>
 </div>
 
 

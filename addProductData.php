@@ -3,10 +3,10 @@
 require("dbconnection.php");
 
 
-	
-if (isset($_POST["addproduct"])) {
 
+if (isset($_POST["addproduct"])) {
 	$db=new dbconnection();
+	$db->checksession();
 	$pid=null;
 	$pname=$_POST["ProductName"];
 	$unit=$_POST["unit"];
@@ -43,21 +43,22 @@ if (isset($_POST["addproduct"])) {
 
 			if ($db->QueryTable($qry)) {
 
-				header("Location: index.php");
+				header("Location: product.php");
 			}else{
-				header("Location: index.php".mysqli_error());
+				header("Location: product.php".mysqli_error());
 
 			}
 
 
 		}else{
 			//print_r($errors);
-			header("Location: index.php?error=".$errors);
+			header("Location: product.php?error=".$errors);
 		}
 	}
 }else if (isset($_POST["updateProduct"])) {
 
 	$db=new dbconnection();
+	$db->checksession();
 	$pid=$_POST["pid"];
 	$pname=$_POST["ProductName"];
 	$unit=$_POST["unit"];
@@ -91,20 +92,20 @@ if (isset($_POST["addproduct"])) {
 			unlink("images/".$photo);
 			$photo=$file_name;
 		}else{
-			header("Location: index.php?error=".$errors);
+			header("Location: product.php?error=".$errors);
 		}
 
 	}
 	echo $qry="update product set pname='$pname',unit='$unit',qty='$qty',price='$price', descrption='$descr',cat_id='$cat_id',photo='$photo' where pid=".$pid;
 	if ($db->QueryTable($qry)) {
 
-		header("Location: index.php");
+		header("Location: product.php");
 	}else{
-		header("Location: index.php".mysqli_error());
+		header("Location: product.php?err=".mysqli_error());
 			//echo $error;
 	}
 }else{
-	header("Location: index.php");
+	header("Location: product.php");
 }
 
 

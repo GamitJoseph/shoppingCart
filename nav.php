@@ -13,7 +13,15 @@
 </head>
 <body>
 
-
+	<?php 
+	if (isset($_GET['logout']))
+	{
+		require_once("dbconnection.php");
+		$db=new dbconnection();
+		$db->session_end();
+	
+	}
+	?>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -34,7 +42,9 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					
-					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+					<li><a href="?logout"><span class="glyphicon glyphicon-log-in"></span>
+
+					Logout</a></li>
 				</ul>
 			</div>
 		</div>
