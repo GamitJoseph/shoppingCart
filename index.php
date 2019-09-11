@@ -10,8 +10,9 @@
     require_once("AnonymousCart.php");
     $db=new dbconnection();
     $user=new AnonymousCart();
-    echo $user->GetUserID();
-    //setcookie("user_name", "Guru99", time()+ 60,'/');
+
+     $user->GetUserID();
+    
     if (!isset($_GET["cid"])) {
 
         ?>
