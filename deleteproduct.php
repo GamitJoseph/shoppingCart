@@ -14,14 +14,14 @@ if (isset($_GET["did"])) {
 
 	if ($db->QueryTable($qry)) {
 		unlink("images/".$photo);
-		header("Location: index.php");
+		header("Location: product.php");
 	}else{
-		header("Location: index.php?err=".mysqli_error());
+		header("Location: product.php?err=".mysqli_error());
 			//echo $error;
 	}
 
 }else{
-	header("Location: index.php");
+	header("Location: product.php");
 }
 
 ?>

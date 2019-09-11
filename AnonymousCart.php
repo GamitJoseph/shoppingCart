@@ -15,10 +15,10 @@ if (isset($_GET["cid"])) {
 		if (mysqli_num_rows($rs)==0) {
 			$query="INSERT INTO cart(cid, visitor_id, pid) VALUES (null,'$visitor_id','$id')";
 			db->QueryTable($query);
-			header("location:CartList.php?msg=success");
+			header("location: CartList.php?msg=success");
 		}
 		else{
-			header("location:CartList.php?msg=already");
+			header("location: CartList.php?msg=already");
 		}
 		
 

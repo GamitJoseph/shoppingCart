@@ -15,7 +15,7 @@
 
     if (isset($_COOKIE["visitor"]))
     {
-       // echo "Welcome " . $_COOKIE["visitor"] . "!<br>"; 
+        echo "Welcome " . $_COOKIE["visitor"] . "!<br>"; 
     }
     else{
         setcookie("visitor",$visitor_id , time()+ $t,'/');
@@ -102,13 +102,13 @@
                                     width: 254px;">
                                     <div class="card-body">
                                         <h4 class="card-title"><a href="product.html" title="View Product"><?php echo $row['pname']; ?></a></h4>
-                                        <p class="card-text"><?php echo $row['descrption']; ?></p>
+                                        <p class="card-text"><?php echo $row['unit']; ?></p>
                                         <div class="row">
                                             <div class="col">
                                                 <p class="btn btn-danger btn-block"><?php echo $row['price']; ?> &#8377</p>
                                             </div>
                                             <div class="col">
-                                                <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                                <a href="addToCart.php?pid=<?php echo $row['pid']; ?>" class="btn btn-success btn-block">Add to cart</a>
                                             </div>
                                         </div>
                                     </div>

@@ -1,7 +1,6 @@
 <?php 
 
-require("dbconnection.php");
-
+require_once("dbconnection.php");
 
 
 if (isset($_POST["addproduct"])) {
