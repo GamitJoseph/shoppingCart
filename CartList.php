@@ -100,5 +100,7 @@ if (isset($_GET["msg"])) {
 
 </div> 
 <!--container end.//-->
-
+<?php }else{
+	header("location:index.php");
+	} ?>
 <?php require_once("client_footer.php") ?>
