@@ -1,6 +1,27 @@
 <?php 
 
 require_once("nav_client.php");
+
+
+if (isset($_GET["msg"])) {
+	$msg=$_GET["msg"];
+	if($msg=="success") {
+		?>
+		<div class="alert alert-success alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>Success!</strong> Cart addedd SuccessFully...
+		</div>
+		<?php 
+	}elseif ($msg=="already") {
+		?>
+		<div class="alert alert-info alert-dismissible">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>info!</strong>already added in cart...
+		</div>
+		<?php  
+	}else{
+		header("location:index.php");
+	}
 ?>
 <script type="text/javascript">
 	
