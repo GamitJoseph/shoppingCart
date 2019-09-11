@@ -1,35 +1,30 @@
 <?php
 require_once("dbconnection.php");
-//$db=new dbconnection();
+if (isset($_GET["cid"])) {
+	$id=$_GET["cid"];
 
-class AnonymousCart 
-{
-	
-	
-	public	function __construct()
+	$db=new dbconnection();
+	if (!isset($_COOKIE["visitor"]))
 	{
-		
-		
+		header("location:index.php");
+	}else{
+	$visitor_id=$_COOKIE["visitor"];
+	$user=$_COOKIE["visitor"];
+	$qr="select * from cart where pid=$cid";
+	$rs=db->QueryTable($qr);
+	 if (mysqli_num_rows($rs)==0) {
+
+        }
+	$query="INSERT INTO cart(cid, visitor_id, pid) VALUES (null,'$visitor_id','$id')";
+
 	}
 
 
-	public function GetUserID()
-	{
-		// $db=new dbconnection();
-		// //session_start();
-		// $site_name = "cart";
-		// $visitor_id = $site_name .$db->randomString();
-		// $t=60*60*24*60;
-		// //$result=null;
-		// if (isset($_SESSION["visitor"])) {
-		// 	$visitor_id = $_SESSION["visitor"];
-		// 	$result="set";
-		// }else{
-		// 	//setcookie("visitor_id", '$visitor_id', time()+ $t,'/');
-		// 	$_SESSION["visitor"] = "$visitor_id";
-		// 	$result=$visitor_id;
-		// }
-	}
 }
+
+
+
+
+
 
 ?>

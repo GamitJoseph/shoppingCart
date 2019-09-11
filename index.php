@@ -5,13 +5,29 @@
 </head>
 <body>
     <?php 
-    require_once("nav_client.php");
     require_once("dbconnection.php");
-    require_once("AnonymousCart.php");
     $db=new dbconnection();
-    $user=new AnonymousCart();
+  // $user->GetUserID();
 
-     $user->GetUserID();
+    $site_name = "cart";
+    $visitor_id =  $site_name .$db->randomString();
+    $t=60*60*24*60;
+
+    if (isset($_COOKIE["visitor"]))
+    {
+       // echo "Welcome " . $_COOKIE["visitor"] . "!<br>"; 
+    }
+    else{
+        setcookie("visitor",$visitor_id , time()+ $t,'/');
+        echo "not set";
+    }
+    require_once("nav_client.php");
+
+   // require_once("AnonymousCart.php");
+
+   // $user=new AnonymousCart();
+
+
     
     if (!isset($_GET["cid"])) {
 

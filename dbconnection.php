@@ -2,7 +2,12 @@
 
 class dbconnection {
 
+	public function randomString(){
 
+		$str=rand(); 
+		$result = sha1($str); 
+		return $result; 
+	}
 	public function session_set($uname){
 		session_start();
 		$_SESSION["username"] = "$uname";
@@ -69,12 +74,7 @@ class dbconnection {
 		}
 
 	}
-	public function randomString(){
-
-		$str=rand(); 
-		$result = sha1($str); 
-		return $result; 
-	}
+	
 
 
 
