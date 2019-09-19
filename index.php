@@ -15,22 +15,14 @@
 
     if (isset($_COOKIE["visitor"]))
     {
-        echo "Welcome " . $_COOKIE["visitor"] . "!<br>"; 
+       // echo "Welcome " . $_COOKIE["visitor"] . "!<br>"; 
     }
     else{
         setcookie("visitor",$visitor_id , time()+ $t,'/');
         echo "not set";
     }
-    require_once("nav_client.php");
-
-   // require_once("AnonymousCart.php");
-
-   // $user=new AnonymousCart();
-
-
-    
+    require_once("nav_client.php");    
     if (!isset($_GET["cid"])) {
-
         ?>
         <section class="jumbotron text-center">
             <div class="container">

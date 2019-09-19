@@ -8,7 +8,6 @@
                    Shopping Cart Demo for PHP app Assignment.
                 </p>
             </div>
-
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
                 <h5>Informations</h5>
                 <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
@@ -17,15 +16,6 @@
                     <li><a href="About.php">About Us</a></li> 
                 </ul>
             </div>
-
-            <!-- <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
-                <h5>Others links</h5>
-                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                <ul class="list-unstyled">
-                
-                </ul>
-            </div> -->
-
             <div class="col-md-4 col-lg-3 col-xl-3">
                 <h5>Contact</h5>
                 <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">

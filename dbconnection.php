@@ -1,7 +1,6 @@
 <?php
 
 class dbconnection {
-
 	public function randomString(){
 
 		$str=rand(); 
@@ -14,12 +13,22 @@ class dbconnection {
 	}
 
 	public function checksession(){
-		//session_start();
+		session_start();
+		if (!isset($_SESSION["username"])) {
+			
+
+				header("Location: login.php");
+
+		}
+		
 		
 	}
+
+	
 	public function session_end(){
-		
+		//session_start();
 		session_destroy();
+		//echo "hii";
 		header("Location: login.php"); 
 	}
 	public function __construct(){

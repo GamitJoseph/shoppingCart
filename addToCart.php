@@ -16,11 +16,9 @@ if (isset($_GET["pid"])) {
 		}else{
 			header("Location: CartList.php?msg=".mysqli_error());
 		}
-
 	}
 	
 }else {
 	header("Location: index.php");
 }
-
 ?>

@@ -95,7 +95,7 @@ if (isset($_POST["addproduct"])) {
 		}
 
 	}
-	echo $qry="update product set pname='$pname',unit='$unit',qty='$qty',price='$price', descrption='$descr',cat_id='$cat_id',photo='$photo' where pid=".$pid;
+	 $qry="update product set pname='$pname',unit='$unit',qty='$qty',price='$price', descrption='$descr',cat_id='$cat_id',photo='$photo' where pid=".$pid;
 	if ($db->QueryTable($qry)) {
 
 		header("Location: product.php");

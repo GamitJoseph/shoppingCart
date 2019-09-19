@@ -7,7 +7,7 @@ $db->checksession();
 if (isset($_GET["pid"])) {
 
 	$id=$_GET["pid"];
-	echo $qry="select * from product where pid=".$id;
+	 $qry="select * from product where pid=".$id;
 	$cat_name=null;
 	$cat_id=null;
 	$unit=null;

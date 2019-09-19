@@ -45,7 +45,7 @@
       if (mysqli_num_rows($rs)>0) {
         
         $db->session_set($uname);
-        header("Location: index.php");
+        header("Location: product.php");
 
       }else {
        $error="username and password wrong....";

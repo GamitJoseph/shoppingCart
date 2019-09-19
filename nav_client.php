@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +8,6 @@
     <!------ Include the above in your HEAD tag ---------->
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
     <style type="text/css">
         .bloc_left_price {
             color: #c01508;
@@ -74,7 +72,7 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Shopping Cart</a>
+            <a class="navbar-brand" href="index.php">Shopping Cart</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -87,9 +85,7 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="category.html">Categories </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="product.html">Product</a>
-                    </li>
+                   
                     <li class="nav-item">
                         <a class="nav-link" href="CartList.php">Cart</a>
                     </li>
@@ -109,7 +105,18 @@
                     </div>
                     <a class="btn btn-success btn-sm ml-3" href="CartList.php">
                         <i class="fa fa-shopping-cart"></i> Cart
-                        <span class="badge badge-light">3</span>
+                        <span class="badge badge-light">
+                            <?php 
+                            require_once("dbconnection.php");
+                            $db=new dbconnection();
+                             $qr="SELECT COUNT(cid) as total_cart from cart where visitor_id='".$_COOKIE["visitor"]."'";
+                            $rs=$db->QueryTable($qr);
+                             while ($row=mysqli_fetch_array($rs,MYSQLI_ASSOC)){
+                                echo $row['total_cart'];
+                             }
+
+                            ?>
+                        </span>
                     </a>
                 </form>
             </div>
