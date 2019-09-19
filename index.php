@@ -5,6 +5,7 @@
 </head>
 <body>
     <?php 
+<<<<<<< Updated upstream
     require_once("dbconnection.php");
     $db=new dbconnection();
   // $user->GetUserID();
@@ -23,6 +24,17 @@
     }
     require_once("nav_client.php");    
     if (!isset($_GET["cid"])) {
+=======
+    require_once("nav_client.php");
+    require_once("dbconnection.php");
+    require_once("AnonymousCart.php");
+    $db=new dbconnection();
+    $user=new AnonymousCart();
+    echo $user->GetUserID();
+    //setcookie("user_name", "Guru99", time()+ 60,'/');
+    if (!isset($_GET["cid"])) {
+
+>>>>>>> Stashed changes
         ?>
         <section class="jumbotron text-center">
             <div class="container">
@@ -94,13 +106,21 @@
                                     width: 254px;">
                                     <div class="card-body">
                                         <h4 class="card-title"><a href="product.html" title="View Product"><?php echo $row['pname']; ?></a></h4>
+<<<<<<< Updated upstream
                                         <p class="card-text"><?php echo $row['unit']; ?></p>
+=======
+                                        <p class="card-text"><?php echo $row['descrption']; ?></p>
+>>>>>>> Stashed changes
                                         <div class="row">
                                             <div class="col">
                                                 <p class="btn btn-danger btn-block"><?php echo $row['price']; ?> &#8377</p>
                                             </div>
                                             <div class="col">
+<<<<<<< Updated upstream
                                                 <a href="addToCart.php?pid=<?php echo $row['pid']; ?>" class="btn btn-success btn-block">Add to cart</a>
+=======
+                                                <a href="#" class="btn btn-success btn-block">Add to cart</a>
+>>>>>>> Stashed changes
                                             </div>
                                         </div>
                                     </div>

@@ -1,5 +1,7 @@
 <?php
 
+
+
 class dbconnection {
 	public function randomString(){
 
